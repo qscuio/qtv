@@ -648,8 +648,7 @@ export class D1Storage implements IStorage {
     const updated: UserSettings = { 
       ...defaultSettings, 
       ...current, 
-      ...settings,
-      filter_adult_content: settings.filter_adult_content ?? current?.filter_adult_content ?? true
+      ...(settings as any)
     };
     await this.setUserSettings(userName, updated);
   }
